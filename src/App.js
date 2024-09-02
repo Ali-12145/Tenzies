@@ -1,10 +1,11 @@
 import React from "react";
 import Die from "./Die";
 import { nanoid } from "nanoid";
-import Confetti from "react-confetti/dist/types/Confetti";
+import Confetti from "react-confetti";
 export default function App() {
     const [diceState, setDiceState] = React.useState(allNewDice());
     const [win, setWin] = React.useState(false)
+
     React.useEffect(() => {
         const value = diceState[0].value
         const isHeldTrue = diceState.every(dice => dice.isHeld)
@@ -73,7 +74,8 @@ export default function App() {
     ));
     return (
         <main>
-            { win && <Confetti/>}
+            
+            {win && <Confetti />}
             <h1 className="title">Tenzies</h1>
             <p className="instructions">
                 Roll until all dice are the same. Click each die to freeze it at its
